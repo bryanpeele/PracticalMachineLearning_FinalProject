@@ -1,0 +1,16 @@
+euricoFit
+
+Call:
+ randomForest(x = x, y = y, mtry = param$mtry, proximity = TRUE) 
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 2
+
+        OOB estimate of  error rate: 0.24%
+Confusion matrix:
+    A   B   C   D   E class.error
+A 688   4   0   0   0 0.005780347
+B   0 474   0   0   0 0.000000000
+C   0   1 391   0   0 0.002551020
+D   0   0   1 465   0 0.002145923
+E   0   0   0   0 434 0.000000000
