@@ -27,43 +27,42 @@
 <h3>
 <a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h3>
 
-<p>All models for this project were developed in R using the random forest method of the <a href="http://topepo.github.io/caret/index.html"> caret package. </a> The bulk of this analysis is performed in <a href="https://github.com/bryanpeele/PracticalMachineLearning_FinalProject/blob/master/finalProjectMain.R">finalProjectMain.R</a> with calls to <a href="https://github.com/bryanpeele/PracticalMachineLearning_FinalProject/blob/master/plotAccuraciesTime.R">plotAccuraciesTime.R</a> and <a href="https://github.com/bryanpeele/PracticalMachineLearning_FinalProject/blob/master/plotConfusion.R">plotConfusion.R</a> for generating plots. A random forest is created for each individual, as well as for the entire group. The final models each use 500 trees and are summarized <a href="https://github.com/bryanpeele/PracticalMachineLearning_FinalProject/tree/master/models">here. </a></p>
+<p>All models for this project were developed in R using the random forest method of the <a href="http://topepo.github.io/caret/index.html"> caret package. </a> The bulk of this analysis is performed in <a href="https://github.com/bryanpeele/PracticalMachineLearning_FinalProject/blob/master/finalProjectMain.R">finalProjectMain.R</a> with calls to <a href="https://github.com/bryanpeele/PracticalMachineLearning_FinalProject/blob/master/plotAccuraciesTime.R">plotAccuraciesTime.R</a> and <a href="https://github.com/bryanpeele/PracticalMachineLearning_FinalProject/blob/master/plotConfusion.R">plotConfusion.R</a> for generating plots. A random forest is created for each individual, as well as for the entire group. The final models each use 500 trees and are summarized <a href="https://github.com/bryanpeele/PracticalMachineLearning_FinalProject/tree/master/models">here. </a> Before training any models, 20% of the data is set aside for a validation set. Varying portions (20%, 40%...100%) of the remaining data are then used to train random forests. The accuracy on the validation set, and the training time, are examined as more data from the training set is used for the model. Finally, using the the entirety of the training data (80% of the full dataset) is used and confusion matrices are plotted for each user.</p>
 
 <h3>
-<a id="how-much-data-to-use" class="anchor" href="#how-much-data-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How much data to use?</h3>
+<a id="how-much-data-to-use" class="anchor" href="#how-much-data-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validation Accuracy vs. Training Data Fraction</h3>
 
-<p>Different percentages...</p>
-
-<p>Fig 1 </p>
+<p>As shown in Figure 1, the accuracy on the validation set increases as more of the training data is sued to fit the model. However, even with only 20% of the data the cummulative model achieves 96.6% accuracy. Using all of the available data, this accuracy increases to 99.2%</p>
 
 <figure>
   <img src=https://raw.githubusercontent.com/bryanpeele/PracticalMachineLearning_FinalProject/master/figures/ValidationAccuracy.png alt="ValidationAccuracy" width="480" height="480">
 </figure>
+<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 1: Validation Accurcy</h5>
 
-<p>Fig 2</p>
+<p>This 2.6% increase in accuracy comes at the cost of significantly more computing time (259 minutes rather than 31 minutes). It should be noted that these times only serve as rough estimates.  All analysis was performed on the same desktop computer (Processor: AMD FX-4100 Quad-Core 3.60 GHz, RAM: 8GB, OS: Windows 10), but other work was performed on the computer intermittently throughout the process. The time taken to train each model is shown in Figure 2.</p>
 
 <figure>
   <img src=https://raw.githubusercontent.com/bryanpeele/PracticalMachineLearning_FinalProject/master/figures/ModelFitTime.png alt="ModelFitTime" width="480" height="480">
 </figure>
+<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 2: Model Fit Time</h5>
 
 <h3>
 <a id="final-results" class="anchor" href="#final-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Final Results</h3>
 
-<p>Ain't that purty</p>
-
-<p>Fig 3</p>
+<p>Confusion matrices are shown in Figure 3 using random forest models fit to each individual user. On the vertical axis the actual classes from the labelled validation data are shown. On the horizontal axis, the correspondind frequency of predicted classes is shown.</p>
 
 <figure>
-  <img src=https://raw.githubusercontent.com/bryanpeele/PracticalMachineLearning_FinalProject/master/figures/IndividualConfusionMatrix.png alt="AllUserConfusionMatrix" width="480" height="480">
+  <img src=https://raw.githubusercontent.com/bryanpeele/PracticalMachineLearning_FinalProject/master/figures/IndividualConfusionMatrix.png alt="AllUserConfusionMatrix" width="1440" height="960">
 </figure>
+<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 3: Confusion matrices for each user</h5>
 
+<p>Figure 4 shows the confusion matrix for the cummulative model trained collectively on all users at once. For all classes, the validation accuracy is greater than 98%.</p>
 
-<p>Fig 4</p>
 
 <figure>
   <img src=https://raw.githubusercontent.com/bryanpeele/PracticalMachineLearning_FinalProject/master/figures/all%20users%20combinedConfusionMatrix.png alt="AllUserConfusionMatrix" width="480" height="480">
 </figure>
-
+<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fig 4: Confusion matrix for the cummulative model</h5>
 
 
 
