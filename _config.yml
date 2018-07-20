@@ -1,0 +1,8 @@
+title: Practicalmachinelearning finalproject
+description: Final project for the practical machine learning class hosted by Coursera (https://www.coursera.org/learn/practical-machine-learning/)
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
